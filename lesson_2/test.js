@@ -1,1 +1,3 @@
-console.log('Hellowrld');
+var junior = 'yes';
+
+console.log(junior);
