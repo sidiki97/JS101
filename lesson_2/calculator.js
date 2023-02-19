@@ -12,7 +12,6 @@ function prompt (message) {
   console.log(`=> ${message}`);
 }
 
-
 prompt("What's the first number?");
 let number1 = readline.question();
 
