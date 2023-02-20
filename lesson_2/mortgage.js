@@ -33,7 +33,7 @@ function calculateMonthlyPayment (loanAmount, monthlyRate, duration) {
 
 prompt("Welcome to Mortgage Calculator");
 
-let current = {'y' : true, 'n' : false};
+let current = {y : true, n : false};
 let pick = 'y';
 
 while (current[pick]) {
