@@ -1,0 +1,8 @@
+Implicit Type Conversion comparsion:
+
+When a number is compared with a string using ==, the string is coerced into a number.
+When a boolean is compared with any other value, it is coerced into a number and compared again using the == operator.
+When an object is compared with a primitive value, the object is coerced into a primitive value and compared again using the == operator.
+A == comparison of undefined with null evaluates as true.
+
+**Note: always use Strict Equality Operator: ===
