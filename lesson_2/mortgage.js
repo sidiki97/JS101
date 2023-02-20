@@ -1,9 +1,3 @@
-// let loanAmount = 200000;
-
-// let apr = 6.85;
-
-// let loanDuration = 30; // years
-
 const readline = require('readline-sync');
 
 let prompt = (message) => {
@@ -11,7 +5,7 @@ let prompt = (message) => {
 };
 
 function isInvalidNumber(number) {
-  return number.length === 0 ||
+  return number.trim() === '' ||
          Number(number) < 0   ||
          Number.isNaN(Number(number));
 }
@@ -41,7 +35,7 @@ while (current[pick]) {
   prompt("Enter loan amount: ");
   let loanAmount = readline.question();
 
-  while (isInvalidNumber(Number(loanAmount))) {
+  while (isInvalidNumber(loanAmount)) {
     prompt("Enter loan amount: ");
     loanAmount = readline.question();
   }
@@ -49,7 +43,7 @@ while (current[pick]) {
   prompt("Enter APR (%): ");
   let apr = readline.question();
 
-  while (isInvalidNumber(Number(apr))) {
+  while (isInvalidNumber(apr)) {
     prompt("Enter APR (%): ");
     apr = readline.question();
   }
@@ -57,7 +51,7 @@ while (current[pick]) {
   prompt("Enter loan duration (years): ");
   let loanDuration = readline.question();
 
-  while (isInvalidNumber(Number(loanDuration))) {
+  while (isInvalidNumber(loanDuration)) {
     prompt("Enter loan duration (years): ");
     loanDuration = readline.question();
   }
