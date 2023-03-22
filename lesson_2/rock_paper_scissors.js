@@ -7,7 +7,6 @@ const CONT = {y : true, n : false};
 
 let youWins = 0;
 let computerWins = 0;
-let winner;
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -71,10 +70,6 @@ while (CONT[keepGoing]) {
 
   let choice = readline.question();
 
-  if (choice.length > 0) {
-    choice = choice[0].toLowerCase();
-  }
-
   while (!validLetters(choice)) {
     prompt("That's not a valid choice");
     choice = readline.question();
@@ -93,12 +88,12 @@ while (CONT[keepGoing]) {
     }
     prompt('Do you want to play again (y/n)?');
     let answer = readline.question().toLowerCase();
-  
+
     while (answer[0] !== 'n' && answer[0] !== 'y') {
       prompt('Please enter "y" or "n".');
       answer = readline.question().toLowerCase();
     }
-  
+
     keepGoing = answer;
 
     if (keepGoing === 'y') {
@@ -106,7 +101,5 @@ while (CONT[keepGoing]) {
       youWins = 0;
     }
   }
-
-
 
 }
