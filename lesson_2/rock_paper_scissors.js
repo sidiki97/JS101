@@ -32,8 +32,8 @@ function displayWinner(choice, computerChoice) {
 
 function validLetters(letter) {
   if (VALID_LETTERS.includes(letter)) {
-      return true;
-    }
+    return true;
+  }
   return false;
 }
 
