@@ -1,8 +1,7 @@
 const readline = require('readline-sync');
-const LETTER_CHOICES = [['r','rock'], ['p','paper'], ['sc','scissors'], ['sp','spock'], ['l','lizard']];
-const VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
-const VALID_LETTERS = ['r', 'p', 'l', 'sc', 'sp'];
 const FULL_WORD = {r : 'rock', p : 'paper', l : 'lizard', sc : 'scissors', sp : 'spock'};
+const VALID_LETTERS = Object.keys(FULL_WORD);
+const VALID_CHOICES = Object.values(FULL_WORD);
 const CONT = {y : true, n : false};
 
 let youWins = 0;
@@ -10,14 +9,6 @@ let computerWins = 0;
 
 function prompt(message) {
   console.log(`=> ${message}`);
-}
-
-function incrementYouWin() {
-  youWins++;
-}
-
-function incrementComputerWin() {
-  computerWins++;
 }
 
 function displayWinner(choice, computerChoice) {
@@ -28,25 +19,21 @@ function displayWinner(choice, computerChoice) {
       (choice === 'lizard' && (computerChoice === 'spock' || computerChoice === 'paper'))) {
     prompt(`You chose ${choice} and computer chose ${computerChoice}`);
     prompt('You win round!');
-    incrementYouWin();
+    youWins++;
   } else if (choice === computerChoice) {
     prompt(`You chose ${choice} and computer chose ${computerChoice}`);
     prompt("It's a tie");
   } else {
     prompt(`You chose ${choice} and computer chose ${computerChoice}`);
     prompt('Computer wins round!');
-    incrementComputerWin();
+    computerWins++;
   }
 }
 
 function validLetters(letter) {
-  if (letter.length > 2) {
-    return false;
-  } else if (letter.length === 1 || letter.length === 2) {
-    if (VALID_LETTERS.includes(letter)) {
+  if (VALID_LETTERS.includes(letter)) {
       return true;
     }
-  }
   return false;
 }
 
@@ -64,9 +51,9 @@ prompt("Welcome to Rock, Paper, Scissors, Spock, Lizard Game!\n");
 while (CONT[keepGoing]) {
 
   prompt("Choose one:\n");
-  LETTER_CHOICES.forEach(element => {
-    console.log(`${element[0]} for ${element[1]}\n`);
-  });
+  for (const pick in FULL_WORD) {
+    console.log(`${pick} for ${FULL_WORD[pick]}\n`);
+  }
 
   let choice = readline.question();
 
