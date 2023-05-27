@@ -87,5 +87,5 @@ class Time {
 
 let time = new Time(7, 27, 30);
 
-console.log(time.#hour);
+// console.log(time.#hour);
 
